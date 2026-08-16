@@ -1150,11 +1150,10 @@ body {
 
 .skills-globe {
   position: relative;
-  width: 340px;
-  height: 340px;
+  width: 700px;
+  height: 700px;
   margin: 0 auto;
 }
-
 /* 🌍 EARTH-LIKE GLOBE CORE */
 .globe-core {
   position: absolute;
@@ -1349,8 +1348,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 280px;
-  height: 280px;
+  width: 600px;
+  height: 600px;
   transform: translate(-50%, -50%);
   z-index: 2;
   animation: ringRotate 30s linear infinite;
@@ -1361,7 +1360,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform-origin: 140px 0;
+  transform-origin: 300px 0;
   animation: skillOrbit 12s linear infinite;
 }
 
@@ -1413,8 +1412,8 @@ body {
 }
 
 @keyframes skillOrbit {
-  0% { transform: rotate(0deg) translateX(140px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+  0% { transform: rotate(0deg) translateX(300px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(300px) rotate(-360deg); }
 }
 
 @keyframes radiationGlow {
@@ -1424,9 +1423,12 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .skills-globe { width: 320px; height: 320px; }
-  .orbit-ring { width: 240px; height: 240px; }
-  .skill-orbit { transform-origin: 120px 0; }
+  .skills-globe { width: 420px; height: 420px; }
+  .orbit-ring { width: 340px; height: 340px; }
+  .skill-orbit { transform-origin: 170px 0; }
+  .photo-frame { width: 170px; height: 170px; }
+  .photo-frame-ring { top: -15px; left: -15px; right: -15px; bottom: -15px; }
+  .ring-outer { top: -28px; left: -28px; right: -28px; bottom: -28px; }
 }
 /* ========================================
    FIND ME HERE - SOCIAL BAR SECTION
@@ -1881,4 +1883,117 @@ lottie-player {
   z-index: 1;
   padding: 50px 20px;
 }
+/* ========================================
+   CIRCULAR PHOTO FRAME - TECH/GLOW STYLE
+   ======================================== */
 
+.photo-frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 420px;
+  height: 420px;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  border-radius: 50%;
+}
+
+.profile-photo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow:
+    0 0 30px rgba(110, 193, 255, 0.9),
+    0 0 60px rgba(59, 130, 246, 0.5),
+    inset 0 0 20px rgba(110, 193, 255, 0.3);
+  z-index: 3;
+  animation: photoGlowPulse 3s ease-in-out infinite;
+}
+
+/* Rotating dashed ring - technical touch */
+.photo-frame-ring {
+  position: absolute;
+  top: -38px;
+  left: -38px;
+  right: -38px;
+  bottom: -38px;
+  border-radius: 50%;
+  border: 2px dashed var(--accent-light);
+  z-index: 2;
+  animation: ringSpin 12s linear infinite;
+}
+
+/* Second, wider, slower ring spinning opposite direction */
+.ring-outer {
+  top: -54px;
+  left: -54px;
+  right: -54px;
+  bottom: -54px;
+  border: 1px solid rgba(110, 193, 255, 0.35);
+  border-style: dotted;
+  animation: ringSpinReverse 20s linear infinite;
+}
+
+/* Scanning light line sweeping across the photo */
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.scan-line::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(180deg, transparent, rgba(110, 193, 255, 0.5), transparent);
+  animation: scanSweep 3s ease-in-out infinite;
+}
+
+@keyframes photoGlowPulse {
+  0%, 100% {
+    box-shadow:
+      0 0 30px rgba(110, 193, 255, 0.9),
+      0 0 60px rgba(59, 130, 246, 0.5),
+      inset 0 0 20px rgba(110, 193, 255, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 45px rgba(110, 193, 255, 1),
+      0 0 90px rgba(59, 130, 246, 0.7),
+      inset 0 0 25px rgba(110, 193, 255, 0.4);
+  }
+}
+
+@keyframes ringSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ringSpinReverse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes scanSweep {
+  0% { top: -50%; }
+  100% { top: 110%; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .photo-frame { width: 170px; height: 170px; }
+  .photo-frame-ring { top: -15px; left: -15px; right: -15px; bottom: -15px; }
+  .ring-outer { top: -28px; left: -28px; right: -28px; bottom: -28px; }
+}
