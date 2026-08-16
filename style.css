@@ -81,7 +81,7 @@ body {
   border-radius: 50%;
   margin-right: 8px;
   filter: drop-shadow(0 0 10px var(--accent));
-  animation: glow 2s ease-in-out infinite alternate;
+  /* animation: glow 2s ease-in-out infinite alternate; */
 }
 
 
@@ -95,12 +95,12 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer 3s ease-in-out infinite;
+  /* animation: shimmer 3s ease-in-out infinite; */
   text-shadow: 0 0 20px var(--accent);
 }
 
 .logo-glow i {
-  animation: glow 2s ease-in-out infinite alternate;
+  /* animation: glow 2s ease-in-out infinite alternate; */
 }
 
 @keyframes shimmer {
