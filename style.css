@@ -490,13 +490,14 @@ body {
 }
 
 .badges img {
-  flex: none;         /* No stretching */
-  width: 82px;        /* PERFECT uniform width */
-  height: 26px;       /* PERFECT uniform height */
+  flex: none;
+  height: 28px;        /* fixed height keeps row alignment uniform */
+  width: auto;          /* let width follow the badge's actual text length */
+  max-width: 100%;
   border-radius: 12px;
   transition: all 0.3s ease;
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
-  object-fit: cover;  /* Crisp text */
+  object-fit: contain;  /* shows full badge instead of cropping it */
 }
 
 .badges img:hover {
@@ -518,9 +519,10 @@ body {
     align-items: center;
   }
   
-  .badges img {
-    width: 78px;
+    .badges img {
     height: 24px;
+    width: auto;
+    max-width: 100%;
   }
 }
 /* ========================================
